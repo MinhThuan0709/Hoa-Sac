@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sản Phẩm 1 - ZIP HOODIE</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.png" alt="Logo" />
+      </div>
+      <a href="index.html" class="home-btn">Trang Chủ</a>
+    </nav>
+  </header>
+
+  <main style="padding: 40px 20px;">
+
+    <!-- TIÊU ĐỀ SẢN PHẨM -->
+    <section class="product-hero">
+      <div class="left-thumbnails">
+        <img src="images/thumb1.jpg" data-full="images/product1.jpg" alt="Sản phẩm phụ 1" />
+        <img src="images/thumb2.jpg" data-full="images/product1_alt1.jpg" alt="Sản phẩm phụ 2" />
+        <img src="images/thumb3.jpg" data-full="images/product1_alt2.jpg" alt="Sản phẩm phụ 3" />
+      </div>
+
+      <div class="main-product-image">
+        <img id="main-image" src="images/product1.jpg" alt="Sản phẩm chính" />
+        <div class="hero-text">
+          <p>New Arrivals</p>
+          <h1>ZIP HOODIE</h1>
+          <p class="desc">Phong cách cá tính, thoải mái cho mùa thu đông. Chất liệu cotton mềm mịn, form unisex dễ phối đồ.</p>
+          <a href="#" class="buy-btn">Discover Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GỢI Ý SẢN PHẨM DẠNG 5x5 -->
+    <section class="product-grid-5x5">
+      <h2 class="section-title">Gợi ý sản phẩm</h2>
+      <div id="product-list" class="grid-container"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-section about">
+        <h2>Hoa Sac FASHION</h2>
+        <p>Hoa Sac cam kết mang đến sản phẩm chất lượng cao, nguồn gốc rõ ràng từ nhà sản xuất đến tay người tiêu dùng.</p>
+      </div>
+      <div class="footer-section contact">
+        <h3>Liên hệ</h3>
+        <p>Tư vấn: 0123 456 789</p>
+        <p>Email: lienhe@hoasac.vn</p>
+        <p>Giờ làm việc: 7h - 22h hàng ngày</p>
+      </div>
+      <div class="footer-section social">
+        <h3>Kết nối</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 - Bản quyền thuộc về HoaSac Fashion</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT THAY ẢNH + THÊM SẢN PHẨM TỰ ĐỘNG -->
+  <script>
+    // Đổi ảnh lớn khi bấm ảnh nhỏ
+    const thumbnails = document.querySelectorAll('.left-thumbnails img');
+    const mainImage = document.getElementById('main-image');
+
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const newSrc = thumb.getAttribute('data-full');
+        mainImage.setAttribute('src', newSrc);
+      });
+    });
+
+    // Danh sách sản phẩm
+   const products = [
+  {
+    name: "Áo Hoodie Đen",
+    image: "images/product-demo1.jpg",
+    priceNew: "$80.00",
+    priceOld: "$100.00",
+    badge: "New",
+    badgeColor: "green"
+  },
+  {
+    name: "Giày Sneaker Trắng",
+    image: "images/product-demo2.jpg",
+    priceNew: "$55.00",
+    priceOld: "$65.00",
+    badge: "-15%",
+    badgeColor: "red"
+  },
+  {
+    name: "Áo Sơ Mi Caro",
+    image: "images/product-demo3.jpg",
+    priceNew: "$70.00",
+    priceOld: "$90.00",
+    badge: "-20%",
+    badgeColor: "red"
+  },
+    {
+  name: "Áo Sơ Mi Caro",
+  image: "images/product-demo3.jpg",
+  priceNew: "$70.00",
+  priceOld: "$90.00",
+  badge: "-20%",
+  badgeColor: "red"
+}, 
+    {
+  name: "Áo Sơ Mi Caro",
+  image: "images/product-demo3.jpg",
+  priceNew: "$70.00",
+  priceOld: "$90.00",
+  badge: "-20%",
+  badgeColor: "red"
+}, 
+     {
+    name: "Áo Hoodie Đen",
+    image: "images/product-demo1.jpg",
+    priceNew: "$80.00",
+    priceOld: "$100.00",
+    badge: "New",
+    badgeColor: "green"
+  },
+  {
+    name: "Giày Sneaker Trắng",
+    image: "images/product-demo2.jpg",
+    priceNew: "$55.00",
+    priceOld: "$65.00",
+    badge: "-15%",
+    badgeColor: "red"
+  },
+  {
+    name: "Áo Sơ Mi Caro",
+    image: "images/product-demo3.jpg",
+    priceNew: "$70.00",
+    priceOld: "$90.00",
+    badge: "-20%",
+    badgeColor: "red"
+  },
+    {
+  name: "Áo Sơ Mi Caro",
+  image: "images/product-demo3.jpg",
+  priceNew: "$70.00",
+  priceOld: "$90.00",
+  badge: "-20%",
+  badgeColor: "red"
+}, 
+    {
+  name: "Áo Sơ Mi Caro",
+  image: "images/product-demo3.jpg",
+  priceNew: "$70.00",
+  priceOld: "$90.00",
+  badge: "-20%",
+  badgeColor: "red"
+}, 
+    
+
+
+
+];
+
+    const container = document.getElementById("product-list");
+
+    products.forEach(p => {
+      const html = `
+        <div class="product-item">
+          <div class="badge ${p.badgeColor}">${p.badge}</div>
+          <img src="${p.image}" alt="${p.name}" />
+          <h3>${p.name}</h3>
+          <p class="price">
+            <span class="new">${p.priceNew}</span>
+            <span class="old">${p.priceOld || ""}</span>
+          </p>
+        </div>`;
+      container.insertAdjacentHTML("beforeend", html);
+    });
+  </script>
+</body>
+</html>

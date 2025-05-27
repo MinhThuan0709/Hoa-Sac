@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Trang Web Toàn Diện</title>
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <!-- Font Awesome cho icon -->
   <link
@@ -49,11 +51,11 @@
       <li class="dropdown">
         <a href="#sanpham"><i class="fas fa-box"></i> Sản phẩm <i class="fas fa-caret-down dropdown-arrow"></i></a>
         <ul class="dropdown-menu">
-          <li><a href="#sp1">Sản phẩm 1</a></li>
-          <li><a href="#sp2">Sản phẩm 2</a></li>
-          <li><a href="#sp3">Sản phẩm 3</a></li>
-          <li><a href="#sp4">Sản phẩm 4</a></li>
-          <li><a href="#sp5">Sản phẩm 5</a></li>
+          <li><a href="product1.html">Sản phẩm 1</a></li>
+          <li><a href="product2.html">Sản phẩm 2</a></li>
+          <li><a href="product3.html">Sản phẩm 3</a></li>
+          <li><a href="product4.html">Sản phẩm 4</a></li>
+          <li><a href="product5.html">Sản phẩm 5</a></li>
         </ul>
       </li>
 
@@ -82,30 +84,102 @@
   <a href="#chitiet1" class="btn-detail">Xem chi tiết</a>
 </div>
 
-<div class="banner">
+<div class="banner" data-aos="fade-up" data-aos-delay="0">
+  <img src="banner1.jpg" alt="Banner 1" />
+  <a href="#chitiet1" class="btn-detail">Xem chi tiết</a>
+</div>
+
+<div class="banner" data-aos="fade-right" data-aos-delay="100">
   <img src="banner2.jpg" alt="Banner 2" />
   <a href="#chitiet2" class="btn-detail">Xem chi tiết</a>
 </div>
 
- <div class="banner">
-  <img src="banner3.jpg" alt="Banner 1" />
+<div class="banner" data-aos="fade-left" data-aos-delay="200">
+  <img src="banner3.jpg" alt="Banner 3" />
   <a href="#chitiet3" class="btn-detail">Xem chi tiết</a>
 </div>
 
-<div class="banner">
-  <img src="banner4.jpg" alt="Banner 2" />
+<div class="banner" data-aos="zoom-in" data-aos-delay="300">
+  <img src="banner4.jpg" alt="Banner 4" />
   <a href="#chitiet4" class="btn-detail">Xem chi tiết</a>
 </div>
 
- <div class="banner">
-  <img src="banner5.jpg" alt="Banner 1" />
+<div class="banner" data-aos="flip-left" data-aos-delay="400">
+  <img src="banner5.jpg" alt="Banner 5" />
   <a href="#chitiet5" class="btn-detail">Xem chi tiết</a>
 </div>
 
-<div class="banner">
-  <img src="banner6.jpg" alt="Banner 2" />
+<div class="banner" data-aos="zoom-out" data-aos-delay="500">
+  <img src="banner6.jpg" alt="Banner 6" />
   <a href="#chitiet6" class="btn-detail">Xem chi tiết</a>
 </div>
+
+<section id="collections" style="padding: 40px 20px;">
+  <h2 class="section-title" data-aos="fade-up">Bộ Sưu Tập Sản Phẩm</h2>
+
+  <div class="scroll-wrapper">
+    <!-- Nút cuộn trái -->
+    <button class="scroll-btn left" id="scroll-left"><i class="fas fa-chevron-left"></i></button>
+
+    <!-- Danh sách sản phẩm -->
+    <div class="product-scroll-container" id="product-container">
+      <!-- Sản phẩm mẫu -->
+      <div class="product-card">
+        <img src="images/product1.jpg" alt="Áo Thun Trắng" />
+        <h3>Áo Thun Trắng</h3>
+        <p class="price">150.000đ</p>
+        <a href="#" class="buy-btn">Mua ngay</a>
+      </div>
+
+      <div class="product-card">
+        <img src="images/product2.jpg" alt="Đầm Vintage" />
+        <h3>Đầm Vintage</h3>
+        <p class="price">320.000đ</p>
+        <a href="#" class="buy-btn">Mua ngay</a>
+      </div>
+
+      <div class="product-card">
+        <img src="images/product3.jpg" alt="Áo Sơ Mi Caro" />
+        <h3>Áo Sơ Mi Caro</h3>
+        <p class="price">210.000đ</p>
+        <a href="#" class="buy-btn">Mua ngay</a>
+      </div>
+
+      <!-- Bạn có thể thêm nhiều sản phẩm hơn tại đây -->
+        <div class="product-card">
+        <img src="images/product3.jpg" alt="Áo Sơ Mi Caro" />
+        <h3>Áo Sơ Mi Caro2</h3>
+        <p class="price">210.000đ</p>
+        <a href="#" class="buy-btn">Mua ngay</a>
+      </div>
+
+       <div class="product-card">
+        <img src="images/product3.jpg" alt="Áo Sơ Mi Caro" />
+        <h3>Áo Sơ Mi Caro3</h3>
+        <p class="price">210.000đ</p>
+        <a href="#" class="buy-btn">Mua ngay</a>
+      </div>
+
+       <div class="product-card">
+        <img src="images/product3.jpg" alt="Áo Sơ Mi Caro" />
+        <h3>Áo Sơ Mi Caro4</h3>
+        <p class="price">210.000đ</p>
+        <a href="#" class="buy-btn">Mua ngay</a>
+      </div>
+       <div class="product-card">
+        <img src="images/product3.jpg" alt="Áo Sơ Mi Caro" />
+        <h3>Áo Sơ Mi Caro 5</h3>
+        <p class="price">210.000đ</p>
+        <a href="#" class="buy-btn">Mua ngay</a>
+      </div>
+    </div>
+
+    <!-- Nút cuộn phải -->
+    <button class="scroll-btn right" id="scroll-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+</section>
+
+
 </main>
 
 
@@ -197,5 +271,14 @@
 <div id="coin-container"></div>
 
 <script src="js/script.js"></script>
+<!-- AOS Animation JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // thời gian hiệu ứng (ms)
+    once: true,     // chỉ chạy 1 lần
+  });
+</script>
+
 </body>
 </html>
