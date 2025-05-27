@@ -207,3 +207,45 @@ document.addEventListener('DOMContentLoaded', () => {
     stopCoinEffect(coinElements);
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('product-container');
+  const btnLeft = document.getElementById('scroll-left');
+  const btnRight = document.getElementById('scroll-right');
+
+  const scrollAmount = 300; // px mỗi lần cuộn
+
+  btnLeft.addEventListener('click', () => {
+    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  btnRight.addEventListener('click', () => {
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+});
+// Tự động cuộn ngang sản phẩm mỗi 3 giây
+let autoScrollInterval = setInterval(() => {
+  const container = document.getElementById('product-container');
+  if (!container) return;
+
+  // Nếu cuộn đến cuối, quay về đầu
+  if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 5) {
+    container.scrollTo({ left: 0, behavior: 'smooth' });
+  } else {
+    container.scrollBy({ left: 300, behavior: 'smooth' });
+  }
+}, 3000); // 3 giây
+
+// Dừng auto khi người dùng hover chuột
+const productContainer = document.getElementById('product-container');
+productContainer.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+
+// Tiếp tục auto khi người dùng rời chuột
+productContainer.addEventListener('mouseleave', () => {
+  autoScrollInterval = setInterval(() => {
+    if (productContainer.scrollLeft + productContainer.clientWidth >= productContainer.scrollWidth - 5) {
+      productContainer.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      productContainer.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  }, 3000);
+});
