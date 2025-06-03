@@ -6,20 +6,26 @@
   <title>Sản Phẩm 1 - ZIP HOODIE</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
+  </head>
 <body>
   <header>
     <nav class="navbar">
       <div class="logo">
-        <img src="logo.png" alt="Logo" />
+        <img src="logo.jpg" alt="Logo" />
       </div>
       <a href="index.html" class="home-btn">Trang Chủ</a>
+      <div class="search-box" style="margin-left: auto; margin-right: 20px;">
+        <input type="text" class="search-input-field" placeholder="Tìm kiếm sản phẩm..." />
+        <button class="search-submit-btn-original"><i class="fas fa-search"></i></button>
+        <button id="mode-toggle" title="Chuyển chế độ sáng/tối">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
     </nav>
   </header>
 
   <main style="padding: 40px 20px;">
 
-    <!-- TIÊU ĐỀ SẢN PHẨM -->
     <section class="product-hero">
       <div class="left-thumbnails">
         <img src="images/thumb1.jpg" data-full="images/product1.jpg" alt="Sản phẩm phụ 1" />
@@ -38,10 +44,10 @@
       </div>
     </section>
 
-    <!-- GỢI Ý SẢN PHẨM DẠNG 5x5 -->
-    <section class="product-grid-5x5">
+    <section class="product-grid-5x5" style="margin-top: 40px;">
       <h2 class="section-title">Gợi ý sản phẩm</h2>
-      <div id="product-list" class="grid-container"></div>
+      <div id="product-list" class="grid-container">
+        </div>
     </section>
 
   </main>
@@ -72,122 +78,62 @@
     </div>
   </footer>
 
-  <!-- SCRIPT THAY ẢNH + THÊM SẢN PHẨM TỰ ĐỘNG -->
-  <script>
-    // Đổi ảnh lớn khi bấm ảnh nhỏ
-    const thumbnails = document.querySelectorAll('.left-thumbnails img');
-    const mainImage = document.getElementById('main-image');
+  <div id="sakura-container"></div>
+  <div id="coin-container"></div>
 
-    thumbnails.forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        const newSrc = thumb.getAttribute('data-full');
-        mainImage.setAttribute('src', newSrc);
-      });
-    });
+  <button id="floating-add-product-btn" title="Thêm sản phẩm mới">
+      <i class="fas fa-plus"></i>
+      <span>Thêm Sản Phẩm</span>
+  </button>
 
-    // Danh sách sản phẩm
-   const products = [
-  {
-    name: "Áo Hoodie Đen",
-    image: "images/product-demo1.jpg",
-    priceNew: "$80.00",
-    priceOld: "$100.00",
-    badge: "New",
-    badgeColor: "green"
-  },
-  {
-    name: "Giày Sneaker Trắng",
-    image: "images/product-demo2.jpg",
-    priceNew: "$55.00",
-    priceOld: "$65.00",
-    badge: "-15%",
-    badgeColor: "red"
-  },
-  {
-    name: "Áo Sơ Mi Caro",
-    image: "images/product-demo3.jpg",
-    priceNew: "$70.00",
-    priceOld: "$90.00",
-    badge: "-20%",
-    badgeColor: "red"
-  },
-    {
-  name: "Áo Sơ Mi Caro",
-  image: "images/product-demo3.jpg",
-  priceNew: "$70.00",
-  priceOld: "$90.00",
-  badge: "-20%",
-  badgeColor: "red"
-}, 
-    {
-  name: "Áo Sơ Mi Caro",
-  image: "images/product-demo3.jpg",
-  priceNew: "$70.00",
-  priceOld: "$90.00",
-  badge: "-20%",
-  badgeColor: "red"
-}, 
-     {
-    name: "Áo Hoodie Đen",
-    image: "images/product-demo1.jpg",
-    priceNew: "$80.00",
-    priceOld: "$100.00",
-    badge: "New",
-    badgeColor: "green"
-  },
-  {
-    name: "Giày Sneaker Trắng",
-    image: "images/product-demo2.jpg",
-    priceNew: "$55.00",
-    priceOld: "$65.00",
-    badge: "-15%",
-    badgeColor: "red"
-  },
-  {
-    name: "Áo Sơ Mi Caro",
-    image: "images/product-demo3.jpg",
-    priceNew: "$70.00",
-    priceOld: "$90.00",
-    badge: "-20%",
-    badgeColor: "red"
-  },
-    {
-  name: "Áo Sơ Mi Caro",
-  image: "images/product-demo3.jpg",
-  priceNew: "$70.00",
-  priceOld: "$90.00",
-  badge: "-20%",
-  badgeColor: "red"
-}, 
-    {
-  name: "Áo Sơ Mi Caro",
-  image: "images/product-demo3.jpg",
-  priceNew: "$70.00",
-  priceOld: "$90.00",
-  badge: "-20%",
-  badgeColor: "red"
-}, 
-    
+  <div id="add-product-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal-btn" aria-label="Đóng">&times;</button>
+      <h2>Thêm Sản Phẩm Mới</h2>
+      <form id="add-product-form">
+        <div class="form-group">
+          <label for="product-image-dropzone">Hình ảnh sản phẩm (kéo thả hoặc chọn):</label>
+          <div id="product-image-dropzone" class="image-drop-zone">
+            <p>Kéo & thả hình ảnh vào đây, hoặc nhấp để chọn file</p>
+            <input type="file" id="product-image-input" name="productImage" accept="image/*" multiple style="display: none;">
+            <div id="image-preview-container"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="product-name">Tên sản phẩm:</label>
+          <input type="text" id="product-name" name="productName" required placeholder="Ví dụ: Áo Hoodie Zip Xám">
+        </div>
+        <div class="form-group form-group-inline">
+          <div>
+            <label for="product-price">Giá (VNĐ):</label>
+            <input type="number" id="product-price" name="productPrice" required placeholder="Ví dụ: 350000" min="0">
+          </div>
+          <div>
+            <label for="product-sale-percentage">Giảm giá (%):</label>
+            <input type="number" id="product-sale-percentage" name="salePercentage" placeholder="Ví dụ: 10" min="0" max="100">
+          </div>
+        </div>
 
+        <div class="form-group form-group-inline">
+          <div>
+            <label for="product-badge-text">Chữ trên Nhãn (Badge):</label>
+            <input type="text" id="product-badge-text" name="badgeText" placeholder="Ví dụ: New, Hot, Sale Off">
+          </div>
+          <div>
+            <label for="product-badge-color">Tên Màu Nhãn (ví dụ: green, blue):</label>
+            <input type="text" id="product-badge-color" name="badgeColor" placeholder="Mặc định: grey (nếu có chữ)">
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="product-notes">Ghi chú / Mô tả:</label>
+          <textarea id="product-notes" name="productNotes" rows="4" placeholder="Mô tả chi tiết về sản phẩm..."></textarea>
+        </div>
 
+        <button type="submit" class="submit-product-btn">Lưu Sản Phẩm</button>
+      </form>
+    </div>
+  </div>
 
-];
-
-    const container = document.getElementById("product-list");
-
-    products.forEach(p => {
-      const html = `
-        <div class="product-item">
-          <div class="badge ${p.badgeColor}">${p.badge}</div>
-          <img src="${p.image}" alt="${p.name}" />
-          <h3>${p.name}</h3>
-          <p class="price">
-            <span class="new">${p.priceNew}</span>
-            <span class="old">${p.priceOld || ""}</span>
-          </p>
-        </div>`;
-      container.insertAdjacentHTML("beforeend", html);
-    });
-  </script>
-</body>
+  <script src="js/script.js"></script>
+  </body>
 </html>
